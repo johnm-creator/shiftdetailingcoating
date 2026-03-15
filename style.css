@@ -78,7 +78,7 @@ nav {
   min-height: 500px;
   background: 
     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
-    url('../assets/GTI2.png') center/cover no-repeat;
+    url('./assets/GTI2.png') center/cover no-repeat;
   color: white;
   display: flex;
   flex-direction: column;
