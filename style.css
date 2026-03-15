@@ -1,0 +1,862 @@
+/* css/main.css - Shift Detailing & Coating LLC styles */
+
+:root {
+  --primary: #0ea5e9;
+  --primary-dark: #0369a1;
+  --dark: #0f172a;
+  --gray: #475569;
+  --light: #f8fafc;
+  --accent: #10b981;
+  --header-height: 80px;   /* Approximate fixed header height – adjust after measuring */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background: var(--light);
+  padding-top: var(--header-height); /* Pushes content below fixed header */
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 5%;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+#hero {
+  height: 70vh;
+  min-height: 500px;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+    url('../assets/GTI2.png') center/cover no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 0 5% 3rem;               /* Removed top padding – content starts near top */
+  position: relative;
+  margin-top: 0;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin-top: 1rem;                 /* Small margin so text doesn't touch header edge */
+  padding-top: 1rem;                /* Optional breathing room – adjust or remove */
+}
+
+h1 {
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  margin-bottom: 1rem;
+  line-height: 1.05;
+  font-weight: 900;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.lead {
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  margin-bottom: 2rem;
+  max-width: 680px;
+  opacity: 0.95;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  background: white;
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.3s;
+  margin: 0.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+/* General section styling – reduced default padding */
+section {
+  padding: 4rem 5%;                 /* Was 8rem – much tighter now */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Specific sections with even tighter spacing */
+section#services,
+section#about,
+section#buildQuote,
+section#contact {
+  padding: 3rem 5%;                 /* Reduced from previous attempts */
+}
+
+/* Override for services if you still want it slightly taller */
+section#services {
+  padding: 4rem 5%;
+}
+
+h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2.5rem;            /* Slightly reduced */
+  color: var(--dark);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 380px;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  margin-bottom: 1.2rem;
+  color: var(--primary);
+  font-size: 1.6rem;
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 3rem 5% 1.5rem;          /* Reduced */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;              /* Slightly less for smaller screens */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  #hero {
+    height: 65vh;
+    min-height: 480px;
+    padding: 0 5% 2.5rem;           /* No top padding on mobile too */
+  }
+
+  .hero-content {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 9vw, 4rem);
+  }
+
+  .lead {
+    font-size: 1.3rem;
+  }
+}
+
+/* Quote builder styles */
+.list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.list-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+}
+
+.list-box label {
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.select {
+  width: 100%;
+  max-width: 260px;
+  height: 180px;
+  padding: 8px;
+  font-size: 1rem;
+  border: 2px solid #94a3b8;
+  border-radius: 15px;
+  background: white;
+  text-align: center;
+  text-align-last: center;
+}
+
+select::-webkit-scrollbar {
+  width: 8px;
+}
+
+select::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.button {
+  padding: 0.7rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button:hover {
+  background: var(--primary-dark);
+}
+
+/* ───────────────────────────────────────────────
+   Hours & Pricing Section
+─────────────────────────────────────────────── */
+
+.section--hours-pricing {
+  padding: 4rem 5%;
+  background: var(--light);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  color: var(--dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hours-block {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+}
+
+.block-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+  color: var(--primary-dark);
+}
+
+.hours-list {
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.hours-list li strong {
+  min-width: 140px;
+  display: inline-block;
+}
+
+.hours-note {
+  font-style: italic;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.pricing-window {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+}
+
+.pricing-note {
+  text-align: center;
+  font-style: italic;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+}
+
+.pricing-table thead tr {
+  background: var(--primary);
+  color: white;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.pricing-table th {
+  font-weight: 600;
+}
+
+.pricing-table th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.pricing-table th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.pricing-table tbody tr {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pricing-table .time-col,
+.pricing-table .price-col {
+  text-align: center;
+}
+
+.pricing-table .price-col {
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.booking-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.booking-text {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+}
+
+.booking-note {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: var(--gray);
+  opacity: 0.9;
+}
+
+.btn--large {
+  font-size: 1.3rem;
+  padding: 1.2rem 3rem;
+  min-width: 280px;
+}
+
+/* ───────────────────────────────────────────────
+   Mobile adjustments
+─────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .section--hours-pricing {
+    padding: 3rem 5%;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+  }
+
+  .pricing-window {
+    padding: 1.8rem;
+  }
+
+  .pricing-table th,
+  .pricing-table td {
+    padding: 0.9rem 0.7rem;
+  }
+
+  .pricing-table {
+    font-size: 1rem;
+  }
+
+  .btn--large {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-table thead {
+    display: none;
+  }
+
+  .pricing-table tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .pricing-table td {
+    display: block;
+    text-align: right;
+    border: none;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+
+  .pricing-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .pricing-table td:first-child {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .pricing-table td[data-label]::before {
+    content: attr(data-label);
+  }
+
+  /* Add data-label attributes in HTML if using this mobile card style */
+}
+
+.service-form {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.15rem;
+}
+
+.service-form label {
+  display: block;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.service-form input[type="radio"] {
+  margin-right: 1rem;
+}
+
+.service-form label:hover,
+.service-form input:checked + span {
+  background: #e0f2fe;
+}
+
+.booking-action {
+  text-align: center;
+}
+
+.selected-display {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: var(--gray);
+}
+
+/* About Section with Visuals */
+.section--about {
+  padding: 5rem 5%;
+  background: white;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text {
+  line-height: 1.7;
+}
+
+.about-lead {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.about-benefits {
+  list-style: none;
+  font-size: 1.15rem;
+}
+
+.about-benefits li {
+  margin-bottom: 1rem;
+  padding-left: 1.8rem;
+  position: relative;
+}
+
+.about-benefits li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.about-results {
+  text-align: center;
+}
+
+.results-subtitle {
+  font-size: 1.15rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.result-item {
+  background: #f8fafc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s;
+}
+
+.result-item:hover {
+  transform: translateY(-6px);
+}
+
+.comparison-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.result-item figcaption {
+  padding: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: white;
+  color: var(--primary-dark);
+}
+
+/* Mobile stacking */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-results {
+    margin-top: 2rem;
+  }
+}
+
+.section--service-selector {
+  padding: 4rem 5%;
+  background: var(--light);
+  text-align: center;
+}
+
+.selector-intro {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--gray);
+}
+
+.service-options {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+.service-label {
+  display: block;
+  margin: 1rem 0;
+  padding: 1.2rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-size: 1.15rem;
+}
+
+.service-label input {
+  margin-right: 1rem;
+}
+
+.service-label:hover,
+.service-label:has(input:checked) {
+  border-color: var(--primary);
+  background: #e0f2fe;
+}
+
+.booking-action {
+  margin-top: 2rem;
+}
+
+.preview-text {
+  margin: 1.5rem 0 1rem;
+  font-style: italic;
+  color: var(--gray);
+}
+
+.reminder {
+  font-size: 1rem;
+  color: var(--gray);
+  max-width: 600px;
+  margin: 1rem auto 0;
+}
+
+/* Basic Wash Hero */
+.hero--basic {
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+              url('../assets/basic-wash-hero.jpg') center/cover no-repeat; /* Optional: add a hero bg if you have one */
+  height: 60vh;
+  min-height: 450px;
+}
+
+/* Service Description */
+.service-details {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.service-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+.service-list li {
+  margin-bottom: 1rem;
+  padding-left: 1.8rem;
+  position: relative;
+}
+
+.service-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 1.4rem;
+}
+
+.duration-info {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--primary-dark);
+  margin: 2rem 0 1rem;
+}
+
+.note {
+  font-style: italic;
+  color: var(--gray);
+}
+
+/* Gallery */
+.section--gallery {
+  padding: 4rem 5%;
+  background: var(--light);
+  text-align: center;
+}
+
+.gallery-subtitle {
+  font-size: 1.25rem;
+  color: var(--gray);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.gallery-item {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-item figcaption {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #f8fafc;
+  color: var(--primary-dark);
+}
+
+.gallery-cta {
+  margin-top: 3rem;
+}
+
+.gallery-cta .btn {
+  margin: 0.75rem;
+}
+
+/* Process Gallery for Ceramic (Before → Wash → After Coating) */
+.gallery-grid--process {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.gallery-grid--process .gallery-item {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.gallery-grid--process figcaption {
+  padding: 1.2rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+}
+
+/* Correct stage labels based on your 9-image structure */
+.gallery-grid--process .gallery-item:nth-child(-n+3) figcaption::before {
+  content: "Pre-Wash Condition";
+  display: block;
+  font-size: 0.9rem;
+  color: #ef4444; /* red for "before" */
+  margin-bottom: 0.4rem;
+}
+
+.gallery-grid--process .gallery-item:nth-child(n+4):nth-child(-n+6) figcaption::before {
+  content: "After Wash (Pre-Coating)";
+  display: block;
+  font-size: 0.9rem;
+  color: #f59e0b; /* amber for intermediate */
+  margin-bottom: 0.4rem;
+}
+
+.gallery-grid--process .gallery-item:nth-child(n+7) figcaption::before {
+  content: "After 3-Year Ceramic Coating";
+  display: block;
+  font-size: 0.9rem;
+  color: var(--primary); /* blue for "after" */
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
