@@ -505,7 +505,7 @@ select::-webkit-scrollbar-thumb {
   }
 
 
-  /*
+  
   .pricing-table td::before {
     content: attr(data-label) ": ";
     position: absolute;
@@ -515,7 +515,7 @@ select::-webkit-scrollbar-thumb {
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
-  } */
+  } 
 
   .pricing-table td:first-child {
     font-weight: bold;
