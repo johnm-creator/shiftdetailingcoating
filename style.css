@@ -494,6 +494,7 @@ select::-webkit-scrollbar-thumb {
     padding: 1rem;
   }
 
+  
   .pricing-table td {
     display: block;
     text-align: left;
@@ -503,6 +504,8 @@ select::-webkit-scrollbar-thumb {
     position: relative;
   }
 
+
+  /*
   .pricing-table td::before {
     content: attr(data-label) ": ";
     position: absolute;
@@ -512,7 +515,7 @@ select::-webkit-scrollbar-thumb {
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
-  }
+  } */
 
   .pricing-table td:first-child {
     font-weight: bold;
@@ -520,9 +523,11 @@ select::-webkit-scrollbar-thumb {
     margin-bottom: 0.8rem;
   }
 
+  /*
   .pricing-table td[data-label]::before {
     content: attr(data-label);
   }
+  */
 
   /* Add data-label attributes in HTML if using this mobile card style */
 }
