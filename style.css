@@ -496,19 +496,22 @@ select::-webkit-scrollbar-thumb {
 
   .pricing-table td {
     display: block;
-    text-align: right;
+    text-align: left;
     border: none;
     padding: 0.5rem 0;
+    padding-left: 55%;
     position: relative;
   }
 
   .pricing-table td::before {
-    content: attr(data-label);
+    content: attr(data-label) ": ";
     position: absolute;
     left: 0;
     width: 50%;
     font-weight: 600;
     text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .pricing-table td:first-child {
