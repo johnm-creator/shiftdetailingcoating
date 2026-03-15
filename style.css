@@ -523,11 +523,11 @@ select::-webkit-scrollbar-thumb {
     margin-bottom: 0.8rem;
   }
 
-  /*
+  
   .pricing-table td[data-label]::before {
     content: attr(data-label);
   }
-  */
+  
 
   /* Add data-label attributes in HTML if using this mobile card style */
 }
