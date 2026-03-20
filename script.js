@@ -36,6 +36,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Fallback for failed image loads - random choice between two placeholders
+document.addEventListener('DOMContentLoaded', function() {
+  const placeholders = [
+    'assets/Imageloading.png',
+    'assets/Imageloading2.png'
+  ];
+
+  document.querySelectorAll('img[data-fallback="true"]').forEach(img => {
+    // Optional: set a temporary low-res placeholder or blur while loading
+    // img.style.filter = 'blur(8px)'; // Uncomment if you want a blur effect during load
+
+    img.onerror = function() {
+      // Pick random placeholder when image fails
+      const randomIndex = Math.floor(Math.random() * placeholders.length);
+      this.src = placeholders[randomIndex];
+      this.alt = "Image loading or unavailable - placeholder";
+      // Prevent infinite error loop if placeholder itself fails
+      this.onerror = null;
+    };
+
+    // Optional: remove blur once loaded successfully
+    img.onload = function() {
+      // this.style.filter = 'none'; // Uncomment if using blur
+    };
+  });
+});
+
   // ───────────────────────────────────────────────
   // Reactive booking link & button text updater
   // Switches between standard and ceramic schedule
