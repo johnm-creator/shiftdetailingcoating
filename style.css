@@ -883,3 +883,9 @@ select::-webkit-scrollbar-thumb {
   margin-bottom: 0.4rem;
   font-weight: bold;
 }
+
+.hero--decon {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+    url('../assets/decon-hero.jpg') center/cover no-repeat;
+}
