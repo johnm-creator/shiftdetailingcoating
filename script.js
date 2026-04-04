@@ -92,3 +92,68 @@ document.addEventListener('DOMContentLoaded', function() {
     updateBooking();
   }
 });
+
+// ==================== FOOTER SOCIAL ICONS (24x24) ====================
+function createFooterSocialIcons() {
+    const footerSocial = document.createElement('div');
+    footerSocial.className = 'footer-social-icons';
+    
+    footerSocial.innerHTML = `
+        <a href="https://www.facebook.com/shiftdetailingcoatingllc" 
+           target="_blank" rel="noopener" aria-label="Follow us on Facebook">
+            <img src="assets/Facebook_Logo_Primary.png" 
+                 alt="Facebook" width="24" height="24">
+        </a>
+        
+        <a href="https://www.instagram.com/shiftdetailingcoatingllc/" 
+           target="_blank" rel="noopener" aria-label="Follow us on Instagram">
+            <img src="assets/Instagram_Glyph_Gradient.svg" 
+                 alt="Instagram" width="24" height="24">
+        </a>
+    `;
+
+    // Find footer and append (adjust selector if your footer has a different class/ID)
+    const footer = document.querySelector('footer') || 
+                   document.querySelector('.footer') || 
+                   document.querySelector('#footer');
+    
+    if (footer) {
+        footer.appendChild(footerSocial);
+    }
+}
+
+// ==================== CONTACT PAGE SOCIAL ICONS (32x32) ====================
+function createContactSocialIcons() {
+    const contactSocial = document.createElement('div');
+    contactSocial.className = 'contact-social-icons';
+    
+    contactSocial.innerHTML = `
+        <a href="https://www.facebook.com/shiftdetailingcoatingllc" 
+           target="_blank" rel="noopener" aria-label="Follow us on Facebook">
+            <img src="assets/Facebook_Logo_Primary.png" 
+                 alt="Facebook" width="32" height="32">
+        </a>
+        
+        <a href="https://www.instagram.com/shiftdetailingcoatingllc/" 
+           target="_blank" rel="noopener" aria-label="Follow us on Instagram">
+            <img src="assets/Instagram_Glyph_Gradient.svg" 
+                 alt="Instagram" width="32" height="32">
+        </a>
+    `;
+
+    // Find contact section (adjust selector to match your contact.html structure)
+    const contactSection = document.querySelector('#contact') || 
+                           document.querySelector('.contact-us') || 
+                           document.querySelector('.contact-section') ||
+                           document.querySelector('.contact');
+    
+    if (contactSection) {
+        contactSection.appendChild(contactSocial);
+    }
+}
+
+// Initialize both when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    createFooterSocialIcons();
+    createContactSocialIcons();
+});
