@@ -91,7 +91,7 @@ nav {
 #hero {
   height: 70vh;
   min-height: 500px;
-  background: 
+  background:
     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
     url('./assets/GTI2.png') center/cover no-repeat;
   color: white;
@@ -100,6 +100,23 @@ nav {
   justify-content: flex-start;
   align-items: center;
   text-align: center;
+  padding: 0 5% 3rem;               /* Removed top padding – content starts near top */
+  position: relative;
+  margin-top: 0;
+}
+
+#hero-nissan {
+  height: 70vh;
+  min-height: 500px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+    url('./assets/IMG_2990.jpeg') center/cover no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
   padding: 0 5% 3rem;               /* Removed top padding – content starts near top */
   position: relative;
   margin-top: 0;
@@ -509,7 +526,7 @@ select::-webkit-scrollbar-thumb {
     padding: 1rem;
   }
 
-  
+
   .pricing-table td {
     display: block;
     text-align: left;
@@ -520,7 +537,7 @@ select::-webkit-scrollbar-thumb {
   }
 
 
-  
+
   .pricing-table td::before {
     content: attr(data-label) ": ";
     position: absolute;
@@ -530,7 +547,7 @@ select::-webkit-scrollbar-thumb {
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
-  } 
+  }
 
   .pricing-table td:first-child {
     font-weight: bold;
@@ -538,11 +555,11 @@ select::-webkit-scrollbar-thumb {
     margin-bottom: 0.8rem;
   }
 
-  
+
   .pricing-table td[data-label]::before {
     content: attr(data-label);
   }
-  
+
 
   /* Add data-label attributes in HTML if using this mobile card style */
 }
@@ -923,8 +940,33 @@ select::-webkit-scrollbar-thumb {
   font-weight: bold;
 }
 
+.gallery-grid--process-platinum .gallery-item:nth-child(-n+3) figcaption::before {
+  content: "Pre-wash Condition";
+  display: block;
+  font-size: 0.9rem;
+  color: #ef4444;
+  margin-bottom: 0.4;
+}
+
+.gallery-grid--process-platinum .gallery-item:nth-child(n+4):nth-child(-n+6) figcaption::before {
+  content: "Wheel Cleaning";
+  display: block;
+  font-size: 0.9rem;
+  color: #f59e0b;
+  margin-bottom: 0.4;
+}
+
+
+.gallery-grid--process-platinum .gallery-item:nth-child(n+7):nth-child(-n+9) figcaption::before {
+  content: "Post Wax Application";
+  display: block;
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 0.4;
+}
+
 .hero--decon {
-  background: 
+  background:
     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
     url('../assets/decon-hero.jpg') center/cover no-repeat;
 }
