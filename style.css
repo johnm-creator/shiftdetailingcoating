@@ -785,7 +785,7 @@ select::-webkit-scrollbar-thumb {
 .hero-overlay {
     background: linear-gradient( rgba(0, 0, 0, 0.45)),
                 url('../assets/IMG_2990.jpeg') center/cover no-repeat;
-    height:
+    height: 60vh;
 }
 
 .hero-service h1 {
@@ -1012,4 +1012,61 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
 
 .contact-social-icons img:hover {
     transform: scale(1.15);
+}
+
+/* ───────────────────────────────────────────────
+   Camry Interior Renew Gallery Styles
+─────────────────────────────────────────────── */
+
+.camry-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.camry-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.camry-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.before-label {
+    color: #d32f2f;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.after-label {
+    color: #388e3c;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.camry-result {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .camry-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .camry-gallery img {
+        border-radius: 10px;
+    }
 }
