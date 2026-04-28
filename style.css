@@ -1070,3 +1070,44 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
         border-radius: 10px;
     }
 }
+
+/* Process Section Styles */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.process-step {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.process-step:hover {
+    transform: translateY(-8px);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.process-step h4 {
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+}
