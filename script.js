@@ -157,3 +157,44 @@ document.addEventListener('DOMContentLoaded', () => {
     createFooterSocialIcons();
     createContactSocialIcons();
 });
+
+
+/***************
+*
+*  Lightbox functions
+*
+***************/
+// Simple Lightbox for Gallery Images
+document.addEventListener('DOMContentLoaded', () => {
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.innerHTML = `<img src="" alt="">`;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector('img');
+
+  // Click on any gallery image to open lightbox
+  document.querySelectorAll('.gallery-img, .camry-gallery img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close lightbox when clicking outside the image or pressing ESC
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'visible';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains('active')) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'visible';
+    }
+  });
+});
