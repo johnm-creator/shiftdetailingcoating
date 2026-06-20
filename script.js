@@ -110,6 +110,12 @@ function createFooterSocialIcons() {
             <img src="assets/Instagram_Glyph_Gradient.svg" 
                  alt="Instagram" width="24" height="24">
         </a>
+
+        <a href="https://x.com/CoatingShi81471?s=20"
+            target="_blank" rel="noopener" aria-label="Follow us on X">
+              <img src="assets/logo-white.png"
+                  alt="X/Twitter" width="24" height="24">
+        </a>
     `;
 
     // Find footer and append (adjust selector if your footer has a different class/ID)
@@ -138,6 +144,12 @@ function createContactSocialIcons() {
            target="_blank" rel="noopener" aria-label="Follow us on Instagram">
             <img src="assets/Instagram_Glyph_Gradient.svg" 
                  alt="Instagram" width="32" height="32">
+        </a>
+
+        <a href="https://x.com/CoatingShi81471?s=20"
+            target="_blank" rel="noopener" aria-label="Follow us on X">
+              <img src="assets/logo-white.png"
+                  alt="X/Twitter" width="24" height="24">
         </a>
     `;
 
