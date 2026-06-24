@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+     <!-- Homepage -->
+     <url>
+          <loc>https://shiftdetailingcoatingllc.com/</loc>
+          <lastmod>2026-06-23</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>1.0</priority>
+     </url>
+
+     <!-- Services Overview -->
+     <url>
+          <loc>https://shiftdetailingcoatingllc.com/services.html</loc>
+          <lastmod>2026-06-23</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.9</priority>
+     </url>
+
+     <!-- Contact / Booking -->
+     <url>
+          <loc>https://shiftdetailingcoatingllc.com/contact.html</loc>
+          <lastmod>2026-06-23</lastmod>
+          <changefreq>monthly</changefreq>
+          <priority>0.7</priority>
+     </url>
+
+     <!-- Individual Service Pages -->
+     <url>
+          <loc>https://shiftdetailingcoatingllc.com/basic-wash.html</loc>
+          <lastmod>2026-06-23</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+     </url>
+
+     <url>
+          <loc>https://shiftdetailingcoatingllc.com/decon-wash.html</loc>
+          <lastmod>2026-06-23</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+     </url>
+
+     <url>
+          <loc>https://shiftdetailingcoatingllc.com/absolute-rinseless.html</loc>
+          <lastmod>2026-06-23</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.7</priority>
+     </url>
+
+     <url>
+          <loc>https://shiftdetailingcoatingllc.com/graphene-platinum.html</loc>
+          <lastmod>2026-06-23</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+     </url>
+
+     <url>
+          <loc>https://shiftdetailingcoatingllc.com/ceramic-3yr.html</loc>
+          <lastmod>2026-06-23</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+     </url>
+
+     <url>
+          <loc>https://shiftdetailingcoatingllc.com/interior-renew.html</loc>
+          <lastmod>2026-06-23</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+     </url>
+
+</urlset>
