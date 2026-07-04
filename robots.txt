@@ -1,0 +1,12 @@
+# robots.txt for Shift Detailing & Coating LLC
+# Site: https://shiftdetailingcoatingllc.com/
+
+User-agent: *
+Allow: /
+
+# Sitemap location (using your custom domain)
+Sitemap: https://shiftdetailingcoatingllc.com/sitemap
+
+# Optional: Prevent crawling of any hidden GitHub build files (rarely needed but harmless)
+Disallow: /_site/
+Disallow: /.git/
