@@ -1199,7 +1199,7 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
 }
 
 /* ───────────────────────────────────────────────
-   Before / After Comparison Slider
+   Before / After Comparison Slider 
 ─────────────────────────────────────────────── */
 .ba-slider-grid {
   display: grid;

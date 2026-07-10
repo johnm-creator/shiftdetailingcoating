@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
       afterImg.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
     }
 
-    // Mouse events
+    // Mouse events 
     slider.addEventListener('mousedown', (e) => {
       isDragging = true;
       updatePosition(e.clientX);
