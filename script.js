@@ -266,3 +266,114 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+// =====================================================
+// Contact form handler – Web3Forms + localStorage lock
+// =====================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('formStatus');
+  const formContainer = document.querySelector('.booking-form-container');
+
+  if (!form) return;
+
+  const STORAGE_KEY = 'shift_quote_submitted';
+  const LOCK_DURATION = 24 * 60 * 60 * 1000; // 24 hours (in milliseconds)
+
+  // Check if the form was already submitted
+  function isFormLocked() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return false;
+
+    const data = JSON.parse(saved);
+    const now = Date.now();
+
+    // If the lock has expired, clear it
+    if (now > data.expires) {
+      localStorage.removeItem(STORAGE_KEY);
+      return false;
+    }
+    return true;
+  }
+
+  // Lock the form and show thank-you message
+  function lockForm() {
+    if (statusEl) {
+      statusEl.textContent = 'Thank you! Your request was already sent. We’ll text or call you soon.';
+      statusEl.className = 'form-status success';
+      statusEl.style.display = 'block';
+    }
+
+    // Disable everything
+    form.querySelectorAll('input, select, textarea, button').forEach(el => {
+      el.disabled = true;
+    });
+
+    // Optional: hide the form fields and only show the message
+    // form.style.display = 'none';
+  }
+
+  // Run on page load
+  if (isFormLocked()) {
+    lockForm();
+    return; // Stop here – no need to attach submit listener
+  }
+
+  // Normal submit handler
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Save lock to localStorage (expires in 24 hours)
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          submitted: true,
+          expires: Date.now() + LOCK_DURATION
+        }));
+
+        lockForm();
+        form.reset();
+      } else {
+        throw new Error(result.message || 'Something went wrong');
+      }
+    } catch (error) {
+      if (statusEl) {
+        statusEl.textContent = 'Sorry, something went wrong. Please text or call (801) 319-8426.';
+        statusEl.className = 'form-status error';
+        statusEl.style.display = 'block';
+      }
+      console.error(error);
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+
+  // Clear button
+  form.addEventListener('reset', () => {
+    if (statusEl && !isFormLocked()) {
+      statusEl.style.display = 'none';
+      statusEl.className = 'form-status';
+    }
+  });
+});

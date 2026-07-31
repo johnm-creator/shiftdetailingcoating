@@ -16,7 +16,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-4K6902SN7B');
   </script>
 </head>
@@ -32,7 +31,6 @@
             style="max-height: 60px; width: auto;">
           <span>Shift Detailing & Coating LLC</span>
         </a>
-
       </div>
 
       <ul class="nav-links">
@@ -51,43 +49,108 @@
       style="padding: 6rem 5% 4rem; background: linear-gradient(to bottom, #0f172a, #1e293b); color: white; text-align: center;">
       <h1>Get in Touch</h1>
       <p style="font-size: 1.4rem; max-width: 780px; margin: 1.5rem auto;">
-        We're ready to bring the shine to your vehicle. Text, call, email, or message us on Facebook for a fast, free
-        quote.
+        Ready to bring the shine back? Call/text us or fill out the quick form below for a free quote.
       </p>
     </section>
 
-    <section id="contact-info" style="padding: 4rem 5%; max-width: 900px; margin: 0 auto;">
-      <div style="text-align: center; font-size: 1.3rem; line-height: 2;">
-        <p><strong>Phone / Text / WhatsApp:</strong><br>
-          <a href="tel:+18013198426" style="color: var(--primary); font-weight: 700;">(801) 319-8426</a><br>
-          (Same number for calls, texts, and WhatsApp)
+    <section id="contact-info" style="padding: 3rem 5% 2rem; max-width: 900px; margin: 0 auto;">
+      <div style="text-align: center; font-size: 1.25rem; line-height: 1.8;">
+        <p>
+          <strong>Phone / Text / WhatsApp</strong><br>
+          <a href="tel:+18013198426" style="color: var(--primary); font-weight: 700; font-size: 1.5rem;">
+            (801) 319-8426
+          </a><br>
+          <span style="font-size: 0.95rem; opacity: 0.85;">Same number for calls, texts & WhatsApp</span>
         </p>
 
-        <p style="margin: 2rem 0;">
-          <strong>Email:</strong><br>
+        <p style="margin: 1.75rem 0 0.5rem;">
+          <strong>Email</strong><br>
           <a href="mailto:johnm@shiftdetailingcoatingllc.com?subject=Detailing%20Quote%20Request"
-            style="color: var(--primary); font-weight: 700; word-break: break-all;">
+             style="color: var(--primary); font-weight: 600; word-break: break-all;">
             johnm@shiftdetailingcoatingllc.com
           </a>
         </p>
-
-        <p>Message us directly or check out our latest work and specials!</p>
       </div>
 
-      <div style="text-align: center; margin: 4rem 0;">
-        <a href="tel:+18013198426" class="btn primary" style="margin: 1rem;">Call or Text Now</a>
-        <a href="mailto:johnm@shiftdetailingcoatingllc.com?subject=Free%20Detailing%20Quote" class="btn"
-          style="margin: 1rem;">Send Email</a>
-        <a href="https://www.facebook.com/profile.php?id=61587726070656" target="_blank" rel="noopener noreferrer"
-          class="btn" style="margin: 1rem; background: #1877f2; color: white;">
-          Message on Facebook
+      <!-- Primary CTA -->
+      <div style="text-align: center; margin: 2.5rem 0 1rem;">
+        <a href="tel:+18013198426" class="btn btn--primary" style="margin: 0.5rem; font-size: 1.15rem; padding: 1.1rem 2.4rem;">
+          Call or Text Now
         </a>
       </div>
 
-      <p style="text-align: center; font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 3rem auto;">
-        We proudly serve Kaysville, Layton, Farmington, Bountiful, Syracuse, and surrounding Northern Utah areas with
-        mobile service — we come to you!
+      <p style="text-align: center; font-size: 1.05rem; color: var(--gray); margin-bottom: 2.5rem;">
+        Prefer to type? Use the quick form below — we’ll reply with pricing and availability.
       </p>
+
+      <p style="text-align: center; font-size: 1.05rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">
+        Serving Kaysville, Layton, Farmington, Bountiful, Syracuse & surrounding Northern Utah — we come to you.
+      </p>
+    </section>
+
+    <!-- Booking / Quote Form -->
+    <section class="booking-form-section" id="quote-form">
+      <div class="booking-form-container">
+        <h2>Request a Quote</h2>
+        <p class="form-subtitle">
+          Quick form — we’ll text or call you back with pricing and availability.
+        </p>
+
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+
+        <form id="contactForm" class="booking-form" action="https://api.web3forms.com/submit" method="POST">
+
+          <!-- Web3Forms required fields -->
+          <input type="hidden" name="access_key" value="92a798e3-6b90-444b-8757-7ab8a562a56b">
+          <input type="hidden" name="subject" value="New Quote Request – Shift Detailing">
+          <input type="hidden" name="from_name" value="Shift Detailing Website">
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First name</label>
+              <input type="text" id="firstName" name="firstName" required placeholder="John">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last name</label>
+              <input type="text" id="lastName" name="lastName" required placeholder="Maynor">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required placeholder="(801) 555-1234">
+          </div>
+
+          <div class="form-group">
+            <label for="vehicleSize">Vehicle Size</label>
+            <select id="vehicleSize" name="vehicleSize" required>
+              <option value="" disabled selected>Select size</option>
+              <option value="Sedan / Hatchback">Sedan / Hatchback</option>
+              <option value="Mid-size SUV / Truck">Mid-size SUV / Truck</option>
+              <option value="Full-size SUV / Truck">Full-size SUV / Truck</option>
+              <option value="Full-size / Commercial Van">Full-size / Commercial Van</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="lookingFor">What are you looking for?</label>
+            <textarea id="lookingFor" name="lookingFor" required
+                      rows="3"
+                      placeholder="e.g. Basic wash, ceramic coating, interior detail, paint correction..."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-cancel">Clear</button>
+            <button type="submit" class="btn btn-submit">Request Quote</button>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
 

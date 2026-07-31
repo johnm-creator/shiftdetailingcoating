@@ -155,7 +155,7 @@ h1 {
 
 /* General section styling – reduced default padding */
 section {
-  padding: 4rem 5%;
+  padding: 2.5rem 5%;
   /* Was 8rem – much tighter now */
   max-width: 1200px;
   margin: 0 auto;
@@ -1316,5 +1316,225 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
 
   .ba-slider .ba-handle::before {
     font-size: 10px;
+  }
+}
+
+/* =====================================================
+   Contact / Booking Form Styles
+   ===================================================== */
+
+.booking-form-section {
+  padding: 3rem 5% 5rem;
+  background: #f8fafc;
+}
+
+.booking-form-container {
+  max-width: 640px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem 2rem;
+}
+
+@media (min-width: 640px) {
+  .booking-form-container {
+    padding: 2.75rem 2.5rem;
+  }
+}
+
+.booking-form-container h2 {
+  text-align: center;
+  font-size: 1.85rem;
+  margin: 0 0 0.4rem;
+  color: var(--dark);
+}
+
+.form-subtitle {
+  text-align: center;
+  color: var(--gray);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.booking-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.booking-form label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1e293b;
+  margin-bottom: 0.4rem;
+}
+
+.booking-form label .optional {
+  font-weight: 400;
+  color: #64748b;
+  font-size: 0.88rem;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="email"],
+.booking-form input[type="tel"],
+.booking-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #0f172a;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.booking-form input:focus,
+.booking-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.18);
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+.booking-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 520px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+  margin-top: 1.75rem;
+  padding-top: 0.5rem;
+}
+
+.form-actions .btn {
+  min-width: 120px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.form-actions .btn-cancel {
+  background: transparent;
+  color: #475569;
+  border: 1.5px solid #cbd5e1;
+}
+
+.form-actions .btn-cancel:hover {
+  background: #f1f5f9;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-actions .btn-submit {
+  background: var(--primary);
+  color: white;
+  border: 2px solid var(--primary);
+}
+
+.form-actions .btn-submit:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* Success / status message */
+.form-status {
+  display: none;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.form-status.success {
+  display: block;
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.form-status.error {
+  display: block;
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Textarea – wrapping + resizable */
+.booking-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: inherit;
+  line-height: 1.5;
+  resize: both;                 /* allows both horizontal + vertical resize */
+  min-height: 90px;
+  min-width: 100%;              /* prevents it from getting too narrow */
+  max-width: 100%;              /* keeps it from overflowing the form */
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.booking-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.18);
+}
+
+.booking-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* On mobile, keep vertical resize only (cleaner) */
+@media (max-width: 640px) {
+  .booking-form textarea {
+    resize: vertical;
+  }
+}
+
+.form-status.success {
+  position: relative;
+  animation: slideIn 0.35s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
