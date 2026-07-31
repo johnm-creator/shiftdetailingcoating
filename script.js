@@ -345,6 +345,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = await response.json();
 
       if (result.success) {
+        
+        // Adding lead conversion for the submitted form
+        if(typeof gtag == 'function'){
+          gtag('event', 'generate_lead', {
+            event_category: 'Contact Form',
+            event_label: 'Quote Request',
+            value: 1
+          });
+        }
+        
+        
         // Save lock to localStorage (expires in 24 hours)
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
           submitted: true,
