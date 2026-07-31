@@ -377,3 +377,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// ===== Minimal Cookie Banner =====
+document.addEventListener('DOMContentLoaded', () => {
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+
+  if (!banner || !acceptBtn) return;
+
+  // Only show if the user hasn't already accepted
+  if (!localStorage.getItem('cookiesAccepted')) {
+    banner.style.display = 'block';
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    banner.style.display = 'none';
+  });
+});
