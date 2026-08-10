@@ -1598,3 +1598,37 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
     width: 100%;
   }
 }
+
+
+/* =====================================================
+   Facebook Deals Banner
+   ===================================================== */
+
+.fb-deals-banner {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 999; /* sits under the fixed header */
+}
+
+.fb-deals-banner a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.fb-deals-banner a:hover {
+  opacity: 0.9;
+}
+
+/* Optional: make it slightly tighter on mobile */
+@media (max-width: 768px) {
+  .fb-deals-banner {
+    font-size: 0.9rem;
+    padding: 0.55rem 0.75rem;
+  }
+}
