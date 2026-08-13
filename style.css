@@ -1,4 +1,29 @@
-/* css/main.css - Shift Detailing & Coating LLC styles */
+/**
+ * =================================================================
+ * SHIFT DETAILING & COATING LLC - MAIN STYLESHEET
+ * =================================================================
+ * Organized structure:
+ * 1. Global Styles & Variables
+ * 2. Header & Navigation
+ * 3. Hero Sections
+ * 4. Sections & Layout
+ * 5. Cards & Grids
+ * 6. Hours & Pricing (Services page)
+ * 7. About Section (Index)
+ * 8. Service Pages Content
+ * 9. Galleries & Images
+ * 10. Before/After Sliders
+ * 11. Review Cards
+ * 12. Forms & Contact
+ * 13. Carousel
+ * 14. Footer
+ * 15. Banners & Cookies
+ * 16. Mobile Responsiveness
+ */
+
+/* =================================================================
+   1. GLOBAL STYLES & VARIABLES
+   ================================================================= */
 
 :root {
   --primary: #0ea5e9;
@@ -10,7 +35,6 @@
   --header-height: 90px;
   --banner-height: 43px;
   --total-header: 125px;
-  /* Split the difference: banner positioned lower */
 }
 
 * {
@@ -25,8 +49,11 @@ body {
   color: var(--dark);
   background: var(--light);
   padding-top: var(--total-header);
-  /* Pushes content below header + banner (split positioning) */
 }
+
+/* =================================================================
+   2. HEADER & NAVIGATION
+   ================================================================= */
 
 header {
   position: fixed;
@@ -96,6 +123,10 @@ nav {
   color: var(--dark);
 }
 
+/* =================================================================
+   3. HERO SECTIONS
+   ================================================================= */
+
 #hero {
   height: 60vh;
   min-height: 500px;
@@ -115,9 +146,7 @@ nav {
 .hero-content {
   max-width: 900px;
   margin-top: 1rem;
-  /* Small margin so text doesn't touch header edge */
   padding-top: 1rem;
-  /* Optional breathing room – adjust or remove */
 }
 
 h1 {
@@ -158,24 +187,68 @@ h1 {
   color: white;
 }
 
-/* General section styling – reduced default padding */
+.btn--large {
+  font-size: 1.3rem;
+  padding: 1.2rem 3rem;
+  min-width: 280px;
+}
+
+/* Service page hero variations */
+.hero--basic {
+  height: auto;
+  min-height: 450px;
+}
+
+.hero--sentra {
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+    url('../assets/IMG_2990.jpg') center/cover no-repeat;
+  height: 60vh;
+  min-height: 450px;
+}
+
+.hero-service {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.hero-service h1 {
+  font-size: 3.5rem;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.tagline {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+/* =================================================================
+   4. SECTIONS & LAYOUT
+   ================================================================= */
+
 section {
   padding: 2.5rem 5%;
-  /* Was 8rem – much tighter now */
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Specific sections with even tighter spacing */
 section#services,
 section#about,
 section#buildQuote,
 section#contact {
   padding: 3rem 5%;
-  /* Reduced from previous attempts */
 }
 
-/* Override for services if you still want it slightly taller */
 section#services {
   padding: 4rem 5%;
 }
@@ -185,9 +258,17 @@ h2 {
   font-size: 3rem;
   margin-bottom: 2.5rem;
   margin-top: 2.5rem;
-  /* Slightly reduced */
   color: var(--dark);
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =================================================================
+   5. CARDS & GRIDS
+   ================================================================= */
 
 .grid-3 {
   display: grid;
@@ -228,80 +309,16 @@ h2 {
   font-size: 1.6rem;
 }
 
-
-footer {
-  background: var(--dark);
-  color: white;
-  text-align: center;
-  padding: 3rem 5% 1.5rem;
-  /* Reduced */
-}
-
-footer a {
-  color: var(--primary);
-  text-decoration: none;
+.card-price {
+  font-size: 1.2rem;
   font-weight: 600;
+  color: var(--primary-dark);
+  margin-top: 10px;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  body {
-    padding-top: var(--total-header);
-    /* Same split positioning on mobile */
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem 30px;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.4s ease;
-  }
-
-  .nav-links.active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  #hero {
-    height: 65vh;
-    min-height: 480px;
-    padding: 0 5% 2.5rem;
-    margin-top: 5%;
-    /* No top padding on mobile too */
-  }
-
-  .hero-content {
-    margin-top: 1.25rem;
-    padding-top: 0.5rem;
-  }
-
-  h1 {
-    font-size: clamp(2.4rem, 9vw, 4rem);
-  }
-
-  .lead {
-    font-size: 1.3rem;
-  }
-}
-
-
-
-/* ───────────────────────────────────────────────
-   Hours & Pricing Section
-─────────────────────────────────────────────── */
+/* =================================================================
+   6. HOURS & PRICING SECTION (Services page)
+   ================================================================= */
 
 .section--hours-pricing {
   padding: 4rem 5%;
@@ -313,11 +330,6 @@ footer a {
   font-size: 2.8rem;
   margin-bottom: 3rem;
   color: var(--dark);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .hours-block {
@@ -427,131 +439,67 @@ footer a {
   opacity: 0.9;
 }
 
-.btn--large {
-  font-size: 1.3rem;
-  padding: 1.2rem 3rem;
-  min-width: 280px;
+.section--service-selector {
+  padding: 4rem 5%;
+  background: var(--light);
+  text-align: center;
 }
 
-/* ───────────────────────────────────────────────
-   Mobile adjustments
-─────────────────────────────────────────────── */
-
-@media (max-width: 768px) {
-  .section--hours-pricing {
-    padding: 3rem 5%;
-  }
-
-  .section-title {
-    font-size: 2.4rem;
-  }
-
-  .pricing-window {
-    padding: 1.8rem;
-  }
-
-  .pricing-table th,
-  .pricing-table td {
-    padding: 0.9rem 0.7rem;
-  }
-
-  .pricing-table {
-    font-size: 1rem;
-  }
-
-  .btn--large {
-    width: 100%;
-    padding: 1rem 1.5rem;
-  }
+.section-intro {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--gray);
 }
 
-@media (max-width: 480px) {
-  .pricing-table thead {
-    display: none;
-  }
-
-  .pricing-table tr {
-    display: block;
-    margin-bottom: 1.5rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 1rem;
-  }
-
-
-  .pricing-table td {
-    display: block;
-    text-align: left;
-    border: none;
-    padding: 0.5rem 0;
-    padding-left: 55%;
-    position: relative;
-  }
-
-
-
-  .pricing-table td::before {
-    content: attr(data-label) ": ";
-    position: absolute;
-    left: 0;
-    width: 50%;
-    font-weight: 600;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-  .pricing-table td:first-child {
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 0.8rem;
-  }
-
-
-  .pricing-table td[data-label]::before {
-    content: attr(data-label);
-  }
-
-
-  /* Add data-label attributes in HTML if using this mobile card style */
-}
-
-.service-form {
+.service-options {
   max-width: 700px;
   margin: 0 auto 2.5rem;
+}
+
+.service-label {
+  display: block;
+  margin: 1rem 0;
+  padding: 1.2rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
   font-size: 1.15rem;
 }
 
-.service-form label {
-  display: block;
-  margin: 1rem 0;
-  padding: 1rem;
-  background: #f8fafc;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.service-form input[type="radio"] {
+.service-label input {
   margin-right: 1rem;
 }
 
-.service-form label:hover,
-.service-form input:checked+span {
+.service-label:hover,
+.service-label:has(input:checked) {
+  border-color: var(--primary);
   background: #e0f2fe;
 }
 
 .booking-action {
-  text-align: center;
+  margin-top: 2rem;
 }
 
-.selected-display {
-  margin-top: 1.5rem;
+.preview-text {
+  margin: 1.5rem 0 1rem;
   font-style: italic;
   color: var(--gray);
 }
 
-/* About Section with Visuals */
+.reminder {
+  font-size: 1rem;
+  color: var(--gray);
+  max-width: 600px;
+  margin: 1rem auto 0;
+}
+
+/* =================================================================
+   7. ABOUT SECTION (Index page)
+   ================================================================= */
+
 .section--about {
   padding: 5rem 5%;
   background: white;
@@ -637,124 +585,10 @@ footer a {
   color: var(--primary-dark);
 }
 
-/* Mobile stacking */
-@media (max-width: 992px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
+/* =================================================================
+   8. SERVICE PAGES CONTENT
+   ================================================================= */
 
-  .about-results {
-    margin-top: 2rem;
-  }
-}
-
-.section--service-selector {
-  padding: 4rem 5%;
-  background: var(--light);
-  text-align: center;
-}
-
-.section-intro {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  color: var(--gray);
-}
-
-.service-options {
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
-}
-
-.service-label {
-  display: block;
-  margin: 1rem 0;
-  padding: 1.2rem;
-  background: white;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-align: left;
-  font-size: 1.15rem;
-}
-
-.service-label input {
-  margin-right: 1rem;
-}
-
-.service-label:hover,
-.service-label:has(input:checked) {
-  border-color: var(--primary);
-  background: #e0f2fe;
-}
-
-.booking-action {
-  margin-top: 2rem;
-}
-
-.preview-text {
-  margin: 1.5rem 0 1rem;
-  font-style: italic;
-  color: var(--gray);
-}
-
-.reminder {
-  font-size: 1rem;
-  color: var(--gray);
-  max-width: 600px;
-  margin: 1rem auto 0;
-}
-
-/* Basic Wash Hero */
-.hero--basic {
-  /*background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
-    url('../assets/basic-wash-hero.jpg') center/cover no-repeat;
-  /* Optional: add a hero bg if you have one */
-  height: auto;
-  min-height: 450px;
-}
-
-.hero--sentra {
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
-    url('../assets/IMG_2990.jpg') center/cover no-repeat;
-  /* Optional: add a hero bg if you have one */
-  height: 60vh;
-  min-height: 450px;
-}
-
-.hero-service {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 60vh;
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  margin-bottom: 2rem;
-}
-
-.hero-overlay {
-  background: linear-gradient(rgba(0, 0, 0, 0.45)),
-    url('../assets/IMG_2990.jpeg') center/cover no-repeat;
-  height: 60vh;
-}
-
-.hero-service h1 {
-  font-size: 3.5rem;
-  margin: 0 0 0.5rem 0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-.tagline {
-  font-size: 1.4rem;
-  margin: 0;
-}
-
-/* Service Description */
 .service-details {
   max-width: 900px;
   margin: 30px auto;
@@ -794,7 +628,10 @@ footer a {
   color: var(--gray);
 }
 
-/* Gallery */
+/* =================================================================
+   9. GALLERIES & IMAGES
+   ================================================================= */
+
 .section--gallery {
   padding: 4rem 5%;
   background: var(--light);
@@ -850,7 +687,7 @@ footer a {
   margin: 0.75rem;
 }
 
-/* Process Gallery for Ceramic (Before → Wash → After Coating) */
+/* Process gallery - stage labels for ceramic coating pages */
 .gallery-grid--process {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
@@ -869,13 +706,12 @@ footer a {
   background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
 }
 
-/* Correct stage labels based on your 9-image structure */
+/* 3-Year Ceramic: 3 images per stage (before, wash, after) */
 .gallery-grid--process .gallery-item:nth-child(-n+3) figcaption::before {
   content: "Pre-Wash Condition";
   display: block;
   font-size: 0.9rem;
   color: #ef4444;
-  /* red for "before" */
   margin-bottom: 0.4rem;
 }
 
@@ -884,7 +720,6 @@ footer a {
   display: block;
   font-size: 0.9rem;
   color: #f59e0b;
-  /* amber for intermediate */
   margin-bottom: 0.4rem;
 }
 
@@ -893,17 +728,17 @@ footer a {
   display: block;
   font-size: 0.9rem;
   color: var(--primary);
-  /* blue for "after" */
   margin-bottom: 0.4rem;
   font-weight: bold;
 }
 
+/* Platinum/Graphene: different stage labels */
 .gallery-grid--process-platinum .gallery-item:nth-child(-n+3) figcaption::before {
   content: "Pre-wash Condition";
   display: block;
   font-size: 0.9rem;
   color: #ef4444;
-  margin-bottom: 0.4;
+  margin-bottom: 0.4rem;
 }
 
 .gallery-grid--process-platinum .gallery-item:nth-child(n+4):nth-child(-n+6) figcaption::before {
@@ -911,65 +746,18 @@ footer a {
   display: block;
   font-size: 0.9rem;
   color: #f59e0b;
-  margin-bottom: 0.4;
+  margin-bottom: 0.4rem;
 }
-
 
 .gallery-grid--process-platinum .gallery-item:nth-child(n+7):nth-child(-n+9) figcaption::before {
   content: "Post Wax Application";
   display: block;
   font-size: 0.9rem;
   color: var(--primary);
-  margin-bottom: 0.4;
+  margin-bottom: 0.4rem;
 }
 
-
-/* In style.css - optional loading state */
-img[data-fallback="true"] {
-  transition: filter 0.4s ease;
-}
-
-img[data-fallback="true"]:not([src*="Imageloading"]) {
-  /* You can add a background placeholder pattern if desired */
-  background: #f8fafc url('assets/Imageloading.png') center/contain no-repeat;
-}
-
-/* Footer - 24px icons */
-.footer-social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 15px;
-}
-
-.footer-social-icons img {
-  transition: transform 0.2s ease;
-}
-
-.footer-social-icons img:hover {
-  transform: scale(1.2);
-}
-
-/* Contact Page - 32px icons */
-.contact-social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin: 25px 0;
-}
-
-.contact-social-icons img {
-  transition: transform 0.2s ease;
-}
-
-.contact-social-icons img:hover {
-  transform: scale(1.15);
-}
-
-/* ───────────────────────────────────────────────
-   Camry Interior Renew Gallery Styles
-─────────────────────────────────────────────── */
-
+/* Interior gallery (before/after labels) */
 .camry-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1011,19 +799,7 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .camry-gallery {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .camry-gallery img {
-    border-radius: 10px;
-  }
-}
-
-/* Process Section Styles */
+/* Process steps grid */
 .process-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1064,53 +840,122 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   color: var(--primary-dark);
 }
 
-/***********************
-*
-* lightbox data
-*
-***********************/
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0;
+/* =================================================================
+   10. BEFORE/AFTER SLIDER
+   ================================================================= */
+
+.ba-slider-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ba-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  aspect-ratio: 4 / 3;
+}
+
+.ba-slider img {
+  position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.92);
-  align-items: center;
-  justify-content: center;
-  overflow: auto;
+  object-fit: cover;
+  pointer-events: none;
 }
 
-.lightbox img {
-  max-width: 95%;
-  max-height: 95vh;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  cursor: zoom-out;
+.ba-slider .ba-after {
+  clip-path: inset(0 50% 0 0);
+  z-index: 2;
 }
 
-.lightbox.active {
-  display: flex;
+.ba-slider .ba-before {
+  z-index: 1;
 }
 
+.ba-slider .ba-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: white;
+  z-index: 3;
+  transform: translateX(-50%);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
 
+.ba-slider .ba-handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
 
-/*********************
-*
-* Review Section
-*
-**********************/
+.ba-slider .ba-handle::before {
+  content: "◀ ▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  font-size: 12px;
+  color: var(--primary-dark);
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 2px;
+}
+
+.ba-slider .ba-label {
+  position: absolute;
+  bottom: 12px;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.ba-slider .ba-label--before {
+  right: 12px;
+}
+
+.ba-slider .ba-label--after {
+  left: 12px;
+}
+
+/* =================================================================
+   11. REVIEW CARDS
+   ================================================================= */
+
 .review-card {
-  background: var(--white);
+  background: white;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   max-width: 100%;
   padding: 40px;
   margin-top: 30px;
   transition: transform 0.3s ease;
-  transform: scale(.90);
+  transform: scale(0.90);
 }
 
 .review-card:hover {
@@ -1131,7 +976,7 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: white;
   font-size: 28px;
   font-weight: bold;
   margin-right: 20px;
@@ -1196,137 +1041,9 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   margin-bottom: 30px;
 }
 
-.card-price {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-dark);
-  margin-top: 10px;
-}
-
-/* ───────────────────────────────────────────────
-   Before / After Comparison Slider 
-─────────────────────────────────────────────── */
-.ba-slider-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.ba-slider {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
-  cursor: ew-resize;
-  user-select: none;
-  -webkit-user-select: none;
-  aspect-ratio: 4 / 3;
-}
-
-.ba-slider img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-}
-
-.ba-slider .ba-after {
-  clip-path: inset(0 50% 0 0);
-  z-index: 2;
-}
-
-.ba-slider .ba-before {
-  z-index: 1;
-}
-
-.ba-slider .ba-handle {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 4px;
-  height: 100%;
-  background: white;
-  z-index: 3;
-  transform: translateX(-50%);
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-}
-
-.ba-slider .ba-handle::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ba-slider .ba-handle::before {
-  content: "◀ ▶";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 4;
-  font-size: 12px;
-  color: var(--primary-dark);
-  font-weight: 700;
-  white-space: nowrap;
-  letter-spacing: 2px;
-}
-
-.ba-slider .ba-label {
-  position: absolute;
-  bottom: 12px;
-  padding: 6px 14px;
-  background: rgba(0, 0, 0, 0.65);
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 6px;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.ba-slider .ba-label--before {
-  right: 12px;
-}
-
-.ba-slider .ba-label--after {
-  left: 12px;
-}
-
-@media (max-width: 768px) {
-  .ba-slider-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .ba-slider .ba-handle::after {
-    width: 34px;
-    height: 34px;
-  }
-
-  .ba-slider .ba-handle::before {
-    font-size: 10px;
-  }
-}
-
-/* =====================================================
-   Contact / Booking Form Styles
-   ===================================================== */
+/* =================================================================
+   12. FORMS & CONTACT
+   ================================================================= */
 
 .booking-form-section {
   padding: 3rem 5% 5rem;
@@ -1413,6 +1130,9 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
 .booking-form textarea {
   resize: vertical;
   min-height: 110px;
+  line-height: 1.5;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 .form-row {
@@ -1467,7 +1187,6 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   border-color: var(--primary-dark);
 }
 
-/* Success / status message */
 .form-status {
   display: none;
   text-align: center;
@@ -1482,6 +1201,7 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   background: #ecfdf5;
   color: #065f46;
   border: 1px solid #a7f3d0;
+  animation: slideIn 0.35s ease;
 }
 
 .form-status.error {
@@ -1489,48 +1209,6 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   background: #fef2f2;
   color: #991b1b;
   border: 1px solid #fecaca;
-}
-
-/* Textarea – wrapping + resizable */
-.booking-form textarea {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  font-size: 1rem;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 10px;
-  background: #f8fafc;
-  color: #0f172a;
-  font-family: inherit;
-  line-height: 1.5;
-  resize: both;                 /* allows both horizontal + vertical resize */
-  min-height: 90px;
-  min-width: 100%;              /* prevents it from getting too narrow */
-  max-width: 100%;              /* keeps it from overflowing the form */
-  box-sizing: border-box;
-  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-}
-
-.booking-form textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.18);
-}
-
-.booking-form textarea::placeholder {
-  color: #94a3b8;
-}
-
-/* On mobile, keep vertical resize only (cleaner) */
-@media (max-width: 640px) {
-  .booking-form textarea {
-    resize: vertical;
-  }
-}
-
-.form-status.success {
-  position: relative;
-  animation: slideIn 0.35s ease;
 }
 
 @keyframes slideIn {
@@ -1544,9 +1222,9 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   }
 }
 
-/* =====================================================
-   Carousel Styles (Doubly Linked List)
-   ===================================================== */
+/* =================================================================
+   13. CAROUSEL
+   ================================================================= */
 
 .carousel-wrapper {
   position: relative;
@@ -1589,11 +1267,6 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   display: block;
 }
 
-.carousel-item figcaption {
-  display: none;
-}
-
-/* Navigation Buttons */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -1632,7 +1305,6 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   right: 1rem;
 }
 
-/* Dots/Indicators */
 .carousel-dots {
   position: absolute;
   bottom: 1rem;
@@ -1664,7 +1336,6 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   background: rgba(255, 255, 255, 0.8);
 }
 
-/* Carousel Caption Below */
 .carousel-caption {
   text-align: center;
   padding: 1.25rem 1rem;
@@ -1681,86 +1352,77 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   justify-content: center;
 }
 
-@media (max-width: 768px) {
-  .carousel-caption {
-    font-size: 0.9rem;
-    padding: 1rem 0.75rem;
-    min-height: 45px;
-  }
+/* =================================================================
+   14. FOOTER
+   ================================================================= */
+
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 3rem 5% 1.5rem;
 }
 
-@media (max-width: 480px) {
-  .carousel-caption {
-    font-size: 0.85rem;
-    padding: 0.9rem 0.5rem;
-    min-height: 40px;
-  }
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-  .carousel-wrapper {
-    aspect-ratio: 1.2 / 1;
-  }
-
-  .carousel-btn {
-    width: 42px;
-    height: 42px;
-    font-size: 1.2rem;
-  }
-
-  .carousel-btn--prev {
-    left: 0.75rem;
-  }
-
-  .carousel-btn--next {
-    right: 0.75rem;
-  }
-
-  .carousel-item figcaption {
-    font-size: 0.85rem;
-    padding: 1rem 0.75rem;
-    bottom: 55px;
-  }
-
-  .carousel-dot {
-    width: 8px;
-    height: 8px;
-  }
-
-  .carousel-dot.active {
-    width: 24px;
-  }
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
 }
 
-@media (max-width: 480px) {
-  .carousel-wrapper {
-    aspect-ratio: 1 / 1;
-    margin: 0 auto 2rem;
-  }
-
-  .carousel-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 1rem;
-  }
-
-  .carousel-btn--prev {
-    left: 0.5rem;
-  }
-
-  .carousel-btn--next {
-    right: 0.5rem;
-  }
-
-  .carousel-item figcaption {
-    font-size: 0.8rem;
-    padding: 0.75rem 0.5rem;
-    bottom: 45px;
-  }
+.footer-social-icons img {
+  transition: transform 0.2s ease;
 }
 
-/* ===== Minimal Cookie Banner ===== */
+.footer-social-icons img:hover {
+  transform: scale(1.2);
+}
+
+.contact-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 25px 0;
+}
+
+.contact-social-icons img {
+  transition: transform 0.2s ease;
+}
+
+.contact-social-icons img:hover {
+  transform: scale(1.15);
+}
+
+/* =================================================================
+   15. BANNERS & COOKIES
+   ================================================================= */
+
+.fb-deals-banner {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  order: 2;
+}
+
+.fb-deals-banner a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.fb-deals-banner a:hover {
+  opacity: 0.9;
+}
+
 .cookie-banner {
   position: fixed;
   bottom: 0;
@@ -1808,48 +1470,258 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
   background: var(--primary-dark);
 }
 
-/* Mobile adjustment */
-@media (max-width: 600px) {
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 95vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+/* =================================================================
+   16. MOBILE RESPONSIVENESS
+   ================================================================= */
+
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-results {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: var(--total-header);
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 30px;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  #hero {
+    height: 65vh;
+    min-height: 480px;
+    padding: 0 5% 2.5rem;
+    margin-top: 5%;
+  }
+
+  .hero-content {
+    margin-top: 1.25rem;
+    padding-top: 0.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 9vw, 4rem);
+  }
+
+  .lead {
+    font-size: 1.3rem;
+  }
+
+  .section--hours-pricing {
+    padding: 3rem 5%;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+  }
+
+  .pricing-window {
+    padding: 1.8rem;
+  }
+
+  .pricing-table th,
+  .pricing-table td {
+    padding: 0.9rem 0.7rem;
+  }
+
+  .pricing-table {
+    font-size: 1rem;
+  }
+
+  .btn--large {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+
+  .carousel-wrapper {
+    aspect-ratio: 1.2 / 1;
+  }
+
+  .carousel-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+
+  .carousel-btn--prev {
+    left: 0.75rem;
+  }
+
+  .carousel-btn--next {
+    right: 0.75rem;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .carousel-dot.active {
+    width: 24px;
+  }
+
+  .carousel-caption {
+    font-size: 0.9rem;
+    padding: 1rem 0.75rem;
+    min-height: 45px;
+  }
+
+  .ba-slider-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ba-slider .ba-handle::after {
+    width: 34px;
+    height: 34px;
+  }
+
+  .ba-slider .ba-handle::before {
+    font-size: 10px;
+  }
+
+  .booking-form textarea {
+    resize: vertical;
+  }
+
+  .camry-gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .camry-gallery img {
+    border-radius: 10px;
+  }
+
+  .fb-deals-banner {
+    font-size: 0.9rem;
+    padding: 0.55rem 0.75rem;
+  }
+
   .cookie-content {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .cookie-btn {
     width: 100%;
   }
 }
 
+@media (max-width: 480px) {
+  .pricing-table thead {
+    display: none;
+  }
 
-/* =====================================================
-   Facebook Deals Banner
-   ===================================================== */
+  .pricing-table tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+  }
 
-.fb-deals-banner {
-  background: var(--primary);
-  color: white;
-  text-align: center;
-  padding: 0.65rem 1rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  order: 2;
-  /* Places it after nav in flex column */
-}
+  .pricing-table td {
+    display: block;
+    text-align: left;
+    border: none;
+    padding: 0.5rem 0;
+    padding-left: 55%;
+    position: relative;
+  }
 
-.fb-deals-banner a {
-  color: #fff;
-  text-decoration: underline;
-  font-weight: 700;
-}
+  .pricing-table td::before {
+    content: attr(data-label) ": ";
+    position: absolute;
+    left: 0;
+    width: 50%;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
-.fb-deals-banner a:hover {
-  opacity: 0.9;
-}
+  .pricing-table td:first-child {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.8rem;
+  }
 
-/* Optional: make it slightly tighter on mobile */
-@media (max-width: 768px) {
-  .fb-deals-banner {
-    font-size: 0.9rem;
-    padding: 0.55rem 0.75rem;
+  .carousel-wrapper {
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 2rem;
+  }
+
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  .carousel-btn--prev {
+    left: 0.5rem;
+  }
+
+  .carousel-btn--next {
+    right: 0.5rem;
+  }
+
+  .carousel-caption {
+    font-size: 0.85rem;
+    padding: 0.9rem 0.5rem;
+    min-height: 40px;
   }
 }
