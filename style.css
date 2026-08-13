@@ -1605,14 +1605,22 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
    ===================================================== */
 
 .fb-deals-banner {
+  position: fixed;
+  top: var(--header-height);          /* sits right under the fixed header */
+  left: 0;
+  right: 0;
   background: var(--primary);
   color: white;
   text-align: center;
-  padding: 0.65rem 1rem;
+  padding: 0.55rem 1rem;
   font-size: 0.95rem;
   font-weight: 600;
-  position: relative;
-  z-index: 999; /* sits under the fixed header */
+  z-index: 999;
+  line-height: 1.3;
+}
+
+.fp-deals-banner p {
+  margin: 0;
 }
 
 .fb-deals-banner a {
@@ -1628,7 +1636,8 @@ img[data-fallback="true"]:not([src*="Imageloading"]) {
 /* Optional: make it slightly tighter on mobile */
 @media (max-width: 768px) {
   .fb-deals-banner {
-    font-size: 0.9rem;
-    padding: 0.55rem 0.75rem;
+    top: 95px;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
   }
 }
