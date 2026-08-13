@@ -406,3 +406,213 @@ document.addEventListener('DOMContentLoaded', () => {
     banner.style.display = 'none';
   });
 });
+
+// =====================================================
+// Carousel with Doubly Linked List
+// =====================================================
+
+class DoublyLinkedListNode {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+    this.prev = null;
+  }
+}
+
+class DoublyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
+
+  append(data) {
+    const node = new DoublyLinkedListNode(data);
+    if (!this.head) {
+      this.head = this.tail = node;
+      node.next = node; // Circular
+      node.prev = node; // Circular
+    } else {
+      this.tail.next = node;
+      node.prev = this.tail;
+      node.next = this.head;
+      this.head.prev = node;
+      this.tail = node;
+    }
+  }
+
+  getAt(index) {
+    let current = this.head;
+    for (let i = 0; i < index; i++) {
+      current = current.next;
+    }
+    return current;
+  }
+
+  getLength() {
+    if (!this.head) return 0;
+    let count = 1;
+    let current = this.head.next;
+    while (current !== this.head) {
+      count++;
+      current = current.next;
+    }
+    return count;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Carousel image data
+  const imageData = [
+    {
+      src: 'assets/IMG_2981.jpeg',
+      alt: 'Red Nissan Versa before Platinum Graphene Gloss - front view',
+      caption: 'Before – Heavy dust and road grime (Front)'
+    },
+    {
+      src: 'assets/IMG_2982.jpeg',
+      alt: 'Red Nissan Versa before Platinum Graphene Gloss - side view',
+      caption: 'Before – Dull and contaminated paint (Side)'
+    },
+    {
+      src: 'assets/IMG_2984.jpeg',
+      alt: 'Red Nissan Versa before Platinum Graphene Gloss - rear view',
+      caption: 'Before – Rear three-quarter view'
+    },
+    {
+      src: 'assets/IMG_2985.jpeg',
+      alt: 'Nissan Versa wheel with heavy brake dust',
+      caption: 'Wheel before cleaning – Heavy brake dust'
+    },
+    {
+      src: 'assets/IMG_2986.jpeg',
+      alt: 'Nissan Versa wheel during cleaning process',
+      caption: 'Wheel during cleaning process'
+    },
+    {
+      src: 'assets/IMG_2987.jpeg',
+      alt: 'Nissan Versa wheel after cleaning',
+      caption: 'Wheel after cleaning – Fresh and detailed'
+    },
+    {
+      src: 'assets/2026-04-05_14-47-15.png',
+      alt: 'Special helper inspecting the Nissan Versa',
+      caption: 'Special Helper inspecting the detail'
+    },
+    {
+      src: 'assets/IMG_2989.jpeg',
+      alt: 'Red Nissan Versa after Platinum Graphene Gloss - front view',
+      caption: 'After – Clean front with deep gloss'
+    },
+    {
+      src: 'assets/IMG_2990.jpeg',
+      alt: 'Red Nissan Versa after Platinum Graphene Gloss - side view',
+      caption: 'After – Smooth, reflective side profile'
+    }
+  ];
+
+  // Initialize doubly linked list
+  const carouselList = new DoublyLinkedList();
+  imageData.forEach(img => carouselList.append(img));
+
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsContainer = document.getElementById('dotsContainer');
+  const captionDisplay = document.getElementById('carouselCaption');
+
+  let currentIndex = 0;
+  const totalImages = imageData.length;
+
+  // Populate carousel items
+  imageData.forEach((img, idx) => {
+    const item = document.createElement('figure');
+    item.className = `carousel-item ${idx === 0 ? 'active' : ''}`;
+    item.innerHTML = `
+      <img src="${img.src}" alt="${img.alt}" loading="lazy">
+      <figcaption>${img.caption}</figcaption>
+    `;
+    track.appendChild(item);
+  });
+
+  // Create dot indicators
+  imageData.forEach((_, idx) => {
+    const dot = document.createElement('div');
+    dot.className = `carousel-dot ${idx === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => goToSlide(idx));
+    dotsContainer.appendChild(dot);
+  });
+
+  // Get all items and dots
+  const items = document.querySelectorAll('.carousel-item');
+  const dots = document.querySelectorAll('.carousel-dot');
+
+  // Go to a specific slide
+  function goToSlide(index) {
+    // Using doubly linked list to navigate
+    const node = carouselList.getAt(index);
+    if (!node) return;
+
+    currentIndex = index;
+
+    // Update active item
+    items.forEach(item => item.classList.remove('active'));
+    items[currentIndex].classList.add('active');
+
+    // Update active dot
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentIndex].classList.add('active');
+
+    // Update caption below
+    captionDisplay.textContent = imageData[currentIndex].caption;
+  }
+
+  // Next slide (uses doubly linked list for smooth circular navigation)
+  function nextSlide() {
+    const node = carouselList.getAt(currentIndex);
+    currentIndex = (currentIndex + 1) % totalImages;
+    goToSlide(currentIndex);
+  }
+
+  // Previous slide (uses doubly linked list for smooth circular navigation)
+  function prevSlide() {
+    const node = carouselList.getAt(currentIndex);
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    goToSlide(currentIndex);
+  }
+
+  // Button click handlers
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  // Touch/Swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide(); // Swiped left, show next
+      } else {
+        prevSlide(); // Swiped right, show previous
+      }
+    }
+  }
+});

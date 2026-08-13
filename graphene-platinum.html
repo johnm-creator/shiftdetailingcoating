@@ -215,77 +215,33 @@
             </div>
         </section>
 
-        <!-- Gallery -->
+        <!-- Gallery Carousel -->
         <section class="section section--gallery">
             <div class="container">
                 <h2 class="section-title">Real Results – Platinum Graphene Gloss</h2>
                 <p class="gallery-subtitle">See the full transformation on this red Nissan Versa: dirty pre-wash
                     condition → thorough wheel cleaning → final graphene gloss result.</p>
 
-                <div class="gallery-grid gallery-grid--process-platinum">
+                <!-- Carousel Container -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Images will be populated by JavaScript -->
+                    </div>
 
-                    <!-- Before Images -->
-                    <figure class="gallery-item">
-                        <img src="assets/IMG_2981.jpeg"
-                            alt="Red Nissan Versa before Platinum Graphene Gloss - front view" loading="lazy"
-                            class="gallery-img">
-                        <figcaption>Before – Heavy dust and road grime (Front)</figcaption>
-                    </figure>
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-btn carousel-btn--prev" id="prevBtn" aria-label="Previous image">
+                        <span>&#10094;</span>
+                    </button>
+                    <button class="carousel-btn carousel-btn--next" id="nextBtn" aria-label="Next image">
+                        <span>&#10095;</span>
+                    </button>
 
-                    <figure class="gallery-item">
-                        <img src="assets/IMG_2982.jpeg"
-                            alt="Red Nissan Versa before Platinum Graphene Gloss - side view" loading="lazy"
-                            class="gallery-img">
-                        <figcaption>Before – Dull and contaminated paint (Side)</figcaption>
-                    </figure>
-
-                    <figure class="gallery-item">
-                        <img src="assets/IMG_2984.jpeg"
-                            alt="Red Nissan Versa before Platinum Graphene Gloss - rear view" loading="lazy"
-                            class="gallery-img">
-                        <figcaption>Before – Rear three-quarter view</figcaption>
-                    </figure>
-
-                    <!-- Wheel Cleaning -->
-                    <figure class="gallery-item">
-                        <img src="assets/IMG_2985.jpeg" alt="Nissan Versa wheel with heavy brake dust" loading="lazy"
-                            class="gallery-img">
-                        <figcaption>Wheel before cleaning – Heavy brake dust</figcaption>
-                    </figure>
-
-                    <figure class="gallery-item">
-                        <img src="assets/IMG_2986.jpeg" alt="Nissan Versa wheel during cleaning process" loading="lazy"
-                            class="gallery-img">
-                        <figcaption>Wheel during cleaning process</figcaption>
-                    </figure>
-
-                    <figure class="gallery-item">
-                        <img src="assets/IMG_2987.jpeg" alt="Nissan Versa wheel after cleaning" loading="lazy"
-                            class="gallery-img">
-                        <figcaption>Wheel after cleaning – Fresh and detailed</figcaption>
-                    </figure>
-
-                    <!-- Final Results -->
-                    <figure class="gallery-item">
-                        <img src="assets/2026-04-05_14-47-15.png" alt="Special helper inspecting the Nissan Versa"
-                            loading="lazy" class="gallery-img">
-                        <figcaption>Special Helper inspecting the detail</figcaption>
-                    </figure>
-
-                    <figure class="gallery-item">
-                        <img src="assets/IMG_2989.jpeg"
-                            alt="Red Nissan Versa after Platinum Graphene Gloss - front view" loading="lazy"
-                            class="gallery-img">
-                        <figcaption>After – Clean front with deep gloss</figcaption>
-                    </figure>
-
-                    <figure class="gallery-item">
-                        <img src="assets/IMG_2990.jpeg" alt="Red Nissan Versa after Platinum Graphene Gloss - side view"
-                            loading="lazy" class="gallery-img">
-                        <figcaption>After – Smooth, reflective side profile</figcaption>
-                    </figure>
-
+                    <!-- Dots/Indicators -->
+                    <div class="carousel-dots" id="dotsContainer"></div>
                 </div>
+
+                <!-- Caption Below Carousel -->
+                <div class="carousel-caption" id="carouselCaption"></div>
 
                 <div class="gallery-cta">
                     <a href="https://calendar.app.google/g8xKmsoGMtAFS8pU8" target="_blank" rel="noopener noreferrer"
