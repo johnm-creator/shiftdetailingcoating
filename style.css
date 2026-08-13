@@ -7,7 +7,7 @@
   --gray: #475569;
   --light: #f8fafc;
   --accent: #10b981;
-  --header-height: 80px;
+  --header-height: 90px;
   /* Approximate fixed header height – adjust after measuring */
 }
 
@@ -241,7 +241,7 @@ footer a {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   body {
-    padding-top: 70px;
+    padding-top: 95px;
     /* Slightly less for smaller screens */
   }
 
@@ -279,7 +279,7 @@ footer a {
   }
 
   .hero-content {
-    margin-top: 0.5rem;
+    margin-top: 1.25rem;
     padding-top: 0.5rem;
   }
 
