@@ -1,7 +1,24 @@
-// script.js - Shift Detailing & Coating LLC website interactivity
+/**
+/**
+ * SCRIPT.JS - Shift Detailing & Coating LLC Website Interactivity
+ * 
+ * SECTION BREAKDOWN:
+ * 1. Navigation & Menu Interactions
+ * 2. Image Loading & Fallback Handling
+ * 3. Service Booking Form (Dynamic Link & Text Updates)
+ * 4. Social Icons (Footer & Contact Page)
+ * 5. Lightbox Gallery
+ * 6. Before/After Comparison Sliders
+ * 7. Contact Form Handler (Web3Forms + localStorage)
+ * 8. Cookie Banner Management
+ * 9. Image Carousel with Doubly Linked List
+ */
+
+// ============================================================
+// SECTION 1: NAVIGATION & MENU INTERACTIONS
+// ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ───────────────────────────────────────────────
   // Mobile hamburger menu toggle
   // ───────────────────────────────────────────────
   const menuToggle = document.getElementById('menuToggle');
@@ -14,9 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ───────────────────────────────────────────────
-  // Smooth scrolling for internal anchor links
-  // + close mobile menu after click
+  // Smooth scrolling for internal anchor links + close mobile menu after click
   // ───────────────────────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -35,8 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+});
 
-  // Fallback for failed image loads - random choice between two placeholders
+// ============================================================
+// SECTION 2: IMAGE LOADING & FALLBACK HANDLING
+// ============================================================
+
 document.addEventListener('DOMContentLoaded', function() {
   const placeholders = [
     'assets/Imageloading.png',
@@ -63,9 +82,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-  // ───────────────────────────────────────────────
+// ============================================================
+// SECTION 3: SERVICE BOOKING FORM (Dynamic Link & Text Updates)
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', () => {
   // Reactive booking link & button text updater
-  // Switches between standard and ceramic schedule
   // ───────────────────────────────────────────────
   const radios = document.querySelectorAll('input[name="service"]');
   const bookBtn = document.getElementById('dynamic-book-btn');
@@ -93,7 +115,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// ==================== FOOTER SOCIAL ICONS (24x24) ====================
+// ============================================================
+// SECTION 4: SOCIAL ICONS (Footer & Contact Page)
+// ============================================================
+
+// Footer social icons (24x24)
 function createFooterSocialIcons() {
     const footerSocial = document.createElement('div');
     footerSocial.className = 'footer-social-icons';
@@ -128,7 +154,7 @@ function createFooterSocialIcons() {
     }
 }
 
-// ==================== CONTACT PAGE SOCIAL ICONS (32x32) ====================
+// Contact page social icons (32x32)
 function createContactSocialIcons() {
     const contactSocial = document.createElement('div');
     contactSocial.className = 'contact-social-icons';
@@ -170,12 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
     createContactSocialIcons();
 });
 
+// ============================================================
+// SECTION 5: LIGHTBOX GALLERY
+// ============================================================
 
-/***************
-*
-*  Lightbox functions
-*
-***************/
 // Simple Lightbox for Gallery Images
 document.addEventListener('DOMContentLoaded', () => {
   const lightbox = document.createElement('div');
@@ -211,12 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
-/***************
-*
-*  Before / After Comparison Sliders
-*
-***************/
+// ============================================================
+// SECTION 6: BEFORE/AFTER COMPARISON SLIDERS
+// ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.ba-slider').forEach(slider => {
     const handle = slider.querySelector('.ba-handle');
@@ -267,10 +288,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
-// =====================================================
-// Contact form handler – Web3Forms + localStorage lock
-// =====================================================
+// ============================================================
+// SECTION 7: CONTACT FORM HANDLER (Web3Forms + localStorage)
+// ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
   const statusEl = document.getElementById('formStatus');
@@ -389,7 +409,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ===== Minimal Cookie Banner =====
+// ============================================================
+// SECTION 8: COOKIE BANNER MANAGEMENT
+// ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   const banner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('cookie-accept');
@@ -407,10 +429,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// =====================================================
-// Carousel with Doubly Linked List
-// =====================================================
+// ============================================================
+// SECTION 9: IMAGE CAROUSEL WITH DOUBLY LINKED LIST
+// ============================================================
 
+// Carousel data structure classes
 class DoublyLinkedListNode {
   constructor(data) {
     this.data = data;
