@@ -316,6 +316,14 @@ h2 {
   margin-top: 10px;
 }
 
+.card-note {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: center;
+}
+
 /* =================================================================
    6. HOURS & PRICING SECTION (Services page)
    ================================================================= */
@@ -626,6 +634,22 @@ h2 {
 .note {
   font-style: italic;
   color: var(--gray);
+}
+
+.maintenance-note {
+  background: #ecfdf5;
+  border-left: 4px solid var(--accent);
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  border-radius: 4px;
+}
+
+.maintenance-note strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
 }
 
 /* =================================================================
